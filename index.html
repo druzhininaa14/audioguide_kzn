@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Аудиогид Казань - Загрузка приложения</title>
+    <script>
+        function detectOS() {
+            const userAgent = navigator.userAgent  window.opera;
+            
+            // Android → RuStore
+            if (/android/i.test(userAgent)) {
+                window.location.href = "https://www.rustore.ru/catalog/app/com.yo.audioguide";
+            } 
+            // iOS → App Store
+            else if (/iPad|iPhone|iPod/i.test(userAgent)) {
+                window.location.href = "https://apps.apple.com/ru/app/аудиогид-казань/id6746169778";
+            }
+            // Другие ОС — показываем кнопки выбора
+            else {
+                document.getElementById("buttons").style.display = "block";
+            }
+        }
+    </script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .button { 
+            display: inline-block; margin: 10px; padding: 12px 24px; 
+            background: #007BFF; color: white; text-decoration: none; 
+            border-radius: 5px; font-weight: bold; 
+        }
+        .android { background: #32CD32; }
+        .ios { background: #000000; }
+    </style>
+</head>
+<body onload="detectOS()">
+    <h1>Аудиогид Казань</h1>
+    <p>Скачайте приложение для вашего устройства:</p>
+    
+    <div id="buttons" style="display: none;">
+        <a href="https://www.rustore.ru/catalog/app/com.yo.audioguide" class="button android">RuStore (Android)</a>
+        <a href="https://apps.apple.com/ru/app/аудиогид-казань/id6746169778" class="button ios">App Store (iOS)</a>
+    </div>
+</body>
+</html>
